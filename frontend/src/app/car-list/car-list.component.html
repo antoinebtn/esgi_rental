@@ -1,0 +1,15 @@
+<nav>
+  <ul>
+    <li><a routerLink="/cars" routerLinkActive="active" ariaCurrentWhenActive="page">Voir les voitures</a></li>
+    <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+  </ul>
+</nav>
+
+
+<div *ngFor="let car of cars" class="car-item">
+  <h2>{{ car.name }}</h2>
+  <img [src]="car.picture" alt="" width="300px">
+  <p>{{ car.description }}</p>
+  <p>Price: {{ car.price }} $/day</p>
+  <a [routerLink]="['/cars', car.id]" class="btn btn-info">View Details</a>
+</div>

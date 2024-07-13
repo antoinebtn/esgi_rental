@@ -1,0 +1,9 @@
+<nav>
+  <ul>
+    <li><a routerLink="/cars" routerLinkActive="active" ariaCurrentWhenActive="page">Voir les voitures</a></li>
+    <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+  </ul>
+</nav>
+
+<h2>{{ car.name }}</h2>
+<img [src]="car.picture" alt="" width="300px">
