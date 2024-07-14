@@ -17,6 +17,10 @@ export default (sequelize, DataTypes) => {
       pricePerDay: {
         type: DataTypes.FLOAT,
         allowNull: false
+      },
+      numberOfSeat: {
+        type: DataTypes.INTEGER,
+        allowNull: false
       }
     }, {
       timestamps: true,

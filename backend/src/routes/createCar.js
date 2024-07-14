@@ -7,6 +7,7 @@ export default (app) => {
             .then(car => {
                 const message = `La voiture ${req.body.name} a bien été créée.`
                 res.json({ message, data: car })
-            })
+            }
+        )
     })
 }

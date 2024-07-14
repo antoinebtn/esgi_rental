@@ -1,9 +1,32 @@
-<nav>
-  <ul>
-    <li><a routerLink="/cars" routerLinkActive="active" ariaCurrentWhenActive="page">Voir les voitures</a></li>
-    <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
-  </ul>
-</nav>
-
-<h2>{{ car.name }}</h2>
-<img [src]="car.picture" alt="" width="300px">
+<div class="container mt-5">
+  <div *ngIf="car">
+    <div class="card mb-4 shadow-sm px-3">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <img [src]="car.picture" class="img-fluid" alt="{{ car.name }}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">{{ car.name }}</h5>
+              <p class="card-text">{{ car.description }}</p>
+              <ul class="list-unstyled">
+                <li><strong>{{ car.numberOfSeat }} passagers</strong></li>
+              </ul>
+            </div>
+            <div class="mt-3">
+              <p class="text-muted"><strong>Important:</strong></p>
+              <ul class="text-muted">
+                <li>Les montants des franchises sont calculés selon les inclusions standard, comprenant l'assurance collision sans franchise et la protection contre le vol.</li>
+                <li>Payer maintenant : réservez votre véhicule et bénéficiez de tarifs préférentiels.</li>
+                <li>Payer plus tard : réservez votre véhicule et payez en agence lors de la prise en charge.</li>
+                <li>Des options supplémentaires, comme la Super Cover, sont disponibles à l'agence.</li>
+                <li>Les véhicules présentés sont des exemples. Les modèles exacts et leurs caractéristiques (nombre de passagers, capacité de bagages, consommation...) peuvent varier au sein de chaque catégorie.</li>
+              </ul>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
