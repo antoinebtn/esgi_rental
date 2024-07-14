@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { CarService } from '../car.service';
+import { CarService } from '../../services/car.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Car } from '../../models/car.model';
 
 @Component({
   selector: 'app-car-detail',
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './car-detail.component.css'
 })
 export class CarDetailComponent {
-  car: any;
+  car: Car | undefined;
 
   constructor(
     private route: ActivatedRoute,
