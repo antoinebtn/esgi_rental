@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -14,11 +14,22 @@ export class SearchBarComponent {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.searchForm = this.fb.group({
-      location: ['', Validators.required],
+      location: ['Lille', Validators.required],
       startDate: ['', Validators.required],
-      startTime: ['', Validators.required],
+      startTime: ['12:00', Validators.required],
       endDate: ['', Validators.required],
-      endTime: ['', Validators.required]
+      endTime: ['12:00', Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+
+    this.searchForm.patchValue({
+      startDate: today.toISOString().split('T')[0],
+      endDate: tomorrow.toISOString().split('T')[0]
     });
   }
 
