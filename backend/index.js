@@ -10,6 +10,8 @@ import createCar from "./src/routes/createCar.js";
 import updateCar from "./src/routes/updateCar.js";
 import deleteCar from "./src/routes/deleteCar.js";
 import searchCars from './src/routes/searchCars.js'
+import authRoute from './src/routes/auth.js'
+import booking from './src/routes/booking.js'
 
 const app = express()
 const port = 3000
@@ -21,12 +23,14 @@ app
   .use(morgan('dev'))
   .use(bodyParser.json())
 
+authRoute(app);
 findAllCars(app)
 searchCars(app)
 findCarByPk(app)
 createCar(app)
 updateCar(app)
 deleteCar(app)
+booking(app)
 
 
 app.listen(port, () => {
