@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="search-summary">
+      <p>
+        Ville, gare ou Code d'aéroport <strong>{{ location }}</strong><br>
+        Heure de prise en charge <strong>{{ startDate | date:'fullDate' }} à {{ startDate | date:'shortTime' }}</strong><br>
+        Heure de retour <strong>{{ endDate | date:'fullDate' }} à {{ endDate | date:'shortTime' }}</strong>
+      </p>
+    </div>
+  
+    <h2>Afficher tous les véhicules</h2>
+    <p>Profitez de notre meilleur tarif du moment...</p>
+  
+    <div class="row">
+      <div class="col-md-4" *ngFor="let car of cars">
+        <div class="card mb-4 shadow-sm">
+          <img [src]="car.picture" class="card-img-top" alt="{{ car.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.name }}</h5>
+            <p class="card-subtitle mb-2 text-muted">{{ car.description }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="price-details">
+                <p class="price">{{ car.pricePerDay }} EUR</p>
+                <small>1700 kilomètres inclus<br>0.18 EUR par kilomètre supplémentaire</small>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-warning">Payer maintenant</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Payer plus tard</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -20,7 +20,8 @@ const initDb = () => {
         cars.map(car => {
             Car.create({
                 name: car.name,
-                picture: car.picture
+                picture: car.picture,
+                pricePerDay: car.pricePerDay
             }).then(car => console.log(car.toJSON()))
         })
         console.log('La base de donnée a bien été initialisée !')

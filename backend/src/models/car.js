@@ -14,6 +14,10 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      pricePerDay: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+      }
     }, {
       timestamps: true,
       createdAt: true,

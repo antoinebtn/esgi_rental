@@ -1,31 +1,32 @@
 <div class="search-bar container mt-5">
-    <div class="search-bar-content d-flex align-items-center justify-content-center align-items-center">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="search-bar-content d-flex align-items-center">
       <div class="search-bar-item flex-grow-1">
         <label>Localisation</label>
         <div class="input-group mt-2">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-search"></i></span>
           </div>
-          <input type="text" class="form-control" placeholder="Aéroport, ville ou adresse">
+          <input type="text" formControlName="location" class="form-control" placeholder="Aéroport, ville ou adresse">
         </div>
       </div>
       <div class="search-bar-item">
         <label>Date de départ</label>
         <div class="input-group mt-2">
-          <input type="date" class="form-control">
-          <input type="time" class="form-control">
+          <input type="date" formControlName="startDate" class="form-control">
+          <input type="time" formControlName="startTime" class="form-control">
         </div>
       </div>
       <div class="search-bar-item">
         <label>Date de retour</label>
         <div class="input-group mt-2">
-          <input type="date" class="form-control">
-          <input type="time" class="form-control">
+          <input type="date" formControlName="endDate" class="form-control">
+          <input type="time" formControlName="endTime" class="form-control">
         </div>
       </div>
       <div class="search-bar-item">
-        <button class="btn btn-orange mt-4">Voir les véhicules</button>
+        <button class="btn btn-orange mt-4" type="submit">Voir les véhicules</button>
       </div>
     </div>
-  </div>
-  
+  </form>
+</div>

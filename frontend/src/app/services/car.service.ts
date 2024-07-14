@@ -19,6 +19,11 @@ export class CarService {
     return this.http.get<Car>(`${this.apiUrl}/${id}`);
   }
 
+  searchCars(location: string, startDate: string, endDate: string): Observable<Car[]> {
+    const params = { location, startDate, endDate };
+    return this.http.get<Car[]>(`${this.apiUrl}/search`, { params });
+  }
+
   rentCar(id: number, rentalData: any): Observable<Car> {
     return this.http.post<Car>(`${this.apiUrl}/rent/${id}`, rentalData);
   }

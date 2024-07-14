@@ -2,14 +2,14 @@ export class Car {
     id: number;
     name: string;
     description: string;
-    price: number;
+    pricePerDay: number;
     picture: string;
   
-    constructor(id: number, name: string, description: string, price: number, imageUrl: string) {
+    constructor(id: number, name: string, description: string, pricePerDay: number, imageUrl: string) {
       this.id = id;
       this.name = name;
       this.description = description;
-      this.price = price;
+      this.pricePerDay = pricePerDay;
       this.picture = imageUrl;
     }
 }
