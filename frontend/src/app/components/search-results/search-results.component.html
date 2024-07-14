@@ -23,7 +23,9 @@
                 <small>1700 kilomètres inclus<br>0.18 EUR par kilomètre supplémentaire</small>
               </div>
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-warning">Payer maintenant</button>
+                <a [routerLink]="['/car-booking', car.id]" 
+             [queryParams]="{ startDate: startDate, endDate: endDate }" 
+             class="btn btn-primary">Payer maintenant</a>
               </div>
             </div>
           </div>

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <h2>Réservation de la voiture</h2>
+  <div *ngIf="car" class="card mb-3 w-50">
+    <div class="d-flex justify-content-center align-items-center">
+      <img [src]="car.picture" class="card-img-top" alt="{{ car.name }}">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ car.name }}</h5>
+      <p class="card-text">Prix par jour: {{ car.pricePerDay }} EUR</p>
+      <p class="card-text">Localisation: {{ car.location }}</p>
+      <p class="card-text">Nombre de sièges: {{ car.numberOfSeat }}</p>
+      <p class="card-text">Date de début: {{ startDate | date:'fullDate' }} à {{ startDate | date:'shortTime' }}</p>
+      <p class="card-text">Date de fin: {{ endDate | date:'fullDate' }} à {{ endDate | date:'shortTime' }}</p>
+      <button class="btn btn-primary" (click)="reserveCar()">Confirmer et Payer</button>
+      <div *ngIf="error" class="alert alert-danger mt-2">{{ error }}</div>
+    </div>
+  </div>
+</div>
