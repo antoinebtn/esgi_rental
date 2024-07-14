@@ -3,14 +3,14 @@ export class Car {
     name: string;
     description: string;
     price: number;
-    imageUrl: string;
+    picture: string;
   
     constructor(id: number, name: string, description: string, price: number, imageUrl: string) {
       this.id = id;
       this.name = name;
       this.description = description;
       this.price = price;
-      this.imageUrl = imageUrl;
+      this.picture = imageUrl;
     }
 }
   

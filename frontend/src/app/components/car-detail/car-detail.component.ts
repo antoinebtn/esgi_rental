@@ -15,8 +15,7 @@ import { Car } from '../../models/car.model';
   styleUrl: './car-detail.component.css'
 })
 export class CarDetailComponent {
-  car: Car | undefined;
-
+  car!: Car;
   constructor(
     private route: ActivatedRoute,
     private carService: CarService
