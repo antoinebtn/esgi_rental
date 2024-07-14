@@ -1,0 +1,30 @@
+.search-bar-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .search-bar-item {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .input-group-prepend .input-group-text {
+    background-color: #fff;
+    border: none;
+  }
+  
+  .input-group .form-control {
+    border-left: none;
+  }
+  
+  .btn-orange {
+    background-color: #ff6600;
+    color: #fff;
+    width: 100%;
+  }
+  
+  .btn-orange:hover {
+    background-color: #e65c00;
+  }
+  
