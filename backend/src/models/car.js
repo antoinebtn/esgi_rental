@@ -1,6 +1,6 @@
 /* L’API Rest et la Base de données : Créer un modèle Sequelize */
 export default (sequelize, DataTypes) => {
-    return sequelize.define('Car', {
+    const Car = sequelize.define('Car', {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -21,10 +21,20 @@ export default (sequelize, DataTypes) => {
       numberOfSeat: {
         type: DataTypes.INTEGER,
         allowNull: false
+      },
+      location: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     }, {
       timestamps: true,
       createdAt: true,
       updatedAt: false
     })
-  }
+    
+    Car.associate = models => {
+      Car.hasMany(models.Reservation, { foreignKey: 'carId', as: 'reservations' });
+  };
+  
+  return Car;
+}

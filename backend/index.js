@@ -9,6 +9,7 @@ import findCarByPk from "./src/routes/findCarByPk.js";
 import createCar from "./src/routes/createCar.js";
 import updateCar from "./src/routes/updateCar.js";
 import deleteCar from "./src/routes/deleteCar.js";
+import searchCars from './src/routes/searchCars.js'
 
 const app = express()
 const port = 3000
@@ -21,10 +22,12 @@ app
   .use(bodyParser.json())
 
 findAllCars(app)
+searchCars(app)
 findCarByPk(app)
 createCar(app)
 updateCar(app)
 deleteCar(app)
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { Car } from '../models/car.model';
-import { CarService } from '../services/car.service';
+import { Car } from '../../models/car.model';
+import { CarService } from '../../services/car.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -26,8 +26,8 @@ export class SearchResultsComponent {
       this.startDate = params['startDate'];
       this.endDate = params['endDate'];
 
-      this.carService.searchCars(this.location, this.startDate, this.endDate).subscribe(data => {
-        this.cars = data;
+      this.carService.searchCars(this.location, this.startDate, this.endDate).subscribe((data: any) => {        
+        this.cars = data['data'];
       });
     });
   }

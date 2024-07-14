@@ -23,6 +23,7 @@ export class SearchBarComponent {
   }
 
   onSearch() {
+    
     if (this.searchForm.valid) {
       const formValues = this.searchForm.value;
       const queryParams = {
