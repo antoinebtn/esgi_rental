@@ -12,11 +12,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/cars">Cars</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
         <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link" routerLink="/reservations">Mes réservations</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>
