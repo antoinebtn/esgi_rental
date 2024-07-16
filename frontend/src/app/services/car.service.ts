@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../models/car.model';
@@ -19,8 +19,11 @@ export class CarService {
     return this.http.get<Car>(`${this.apiUrl}/${id}`);
   }
 
-  searchCars(location: string, startDate: string, endDate: string): Observable<Car[]> {
-    const params = { location, startDate, endDate };
+  searchCars(location: string, startDate: Date, endDate: Date): Observable<Car[]> {
+    const params = new HttpParams()
+    .set('location', location)
+    .set('startDate', startDate.toISOString())
+    .set('endDate', endDate.toISOString());
     return this.http.get<Car[]>(`${this.apiUrl}/search`, { params });
   }
 

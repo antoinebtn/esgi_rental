@@ -36,10 +36,16 @@
   }
   
   .price {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #000;
   }
+
+.total-price{
+  font-size: 1.25rem;
+  font-weight: bolder;
+  color: #000;
+}
   
   .btn-group .btn-warning {
     background-color: #ffc107;
