@@ -5,7 +5,8 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { CarBookingComponent } from './components/car-booking/car-booking.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { PaymentComponent } from './payment/payment.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'search-results', component: SearchResultsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'car-booking/:id', component: CarBookingComponent },
+    { path: 'confirmation', component: ConfirmationComponent },
+    { path: 'payment', component: PaymentComponent },
 ];
