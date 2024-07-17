@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,7 @@ export class AuthService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public getLocalStorageUser(): any {
+    private getLocalStorageUser(): any {
         if (typeof window !== 'undefined' && window.localStorage) {
             return JSON.parse(localStorage.getItem('currentUser')!);
         }
@@ -52,5 +53,18 @@ export class AuthService {
 
     isAuthenticated(): boolean {
         return !!this.currentUserValue;
+    }
+
+    getDecodedToken(): any {
+        const user = this.getLocalStorageUser();
+        if (user && user.token) {
+            return jwtDecode(user.token);
+        }
+        return null;
+    }
+
+    getUserIdFromToken(): number | null {
+        const decodedToken = this.getDecodedToken();
+        return decodedToken ? decodedToken.id : null;
     }
 }

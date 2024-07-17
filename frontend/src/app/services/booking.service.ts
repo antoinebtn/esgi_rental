@@ -39,7 +39,7 @@ export class BookingService {
   }
 
   getUserReservations(): Observable<Booking[]> {
-    const userId = 1;
+    const userId = this.authService.getUserIdFromToken();
     return this.http.get<Booking[]>(`${this.apiUrl}/users/${userId}/bookings`);
   }
 }

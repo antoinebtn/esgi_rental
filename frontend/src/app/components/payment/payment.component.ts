@@ -3,6 +3,7 @@ import { Booking } from '../../models/booking.model';
 import { BookingService } from '../../services/booking.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -14,16 +15,19 @@ import { CommonModule } from '@angular/common';
 })
 export class PaymentComponent {
   booking: Booking | null = null;
-  userId: number = 1;
+  userId: number | null = null;
 
   constructor(
     private bookingService: BookingService,
-    private router: Router
+    private router: Router,
+    private authService:AuthService
   ) { }
 
   ngOnInit(): void {
     this.bookingService.getReservation().subscribe(details => {
-      this.booking = details;
+      this.booking = details
+
+      this.userId = this.authService.getUserIdFromToken();
       if (!details || !details.startDate || !details.endDate) {
         this.router.navigate(['/search-results']);
       }
@@ -32,15 +36,19 @@ export class PaymentComponent {
 
   proceedToPayment(): void {
     if (this.booking) {
-      this.bookingService.createReservation(this.booking, this.userId).subscribe({
-        next: (response) => {
-          console.log('Réservation réussie :', response);
-          this.router.navigate(['/bookings']);
-        },
-        error: (err) => {
-          console.error('Erreur lors de la réservation :', err);
-        }
-      });
+      if (this.userId === null) {
+        this.router.navigate(['/login']);
+      } else {
+        this.bookingService.createReservation(this.booking, this.userId).subscribe({
+          next: (response) => {
+            console.log('Réservation réussie :', response);
+            this.router.navigate(['/bookings']);
+          },
+          error: (err) => {
+            console.error('Erreur lors de la réservation :', err);
+          }
+        });
+      }
     }
   }
 }
