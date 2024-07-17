@@ -55,8 +55,5 @@ export class SearchBarComponent {
     const formValues = this.searchForm.value;
     const startDate = this.parseDateString(formValues.startDate, formValues.startTime);
     const endDate = this.parseDateString(formValues.endDate, formValues.endTime);
-
-    console.log('Start Date:', startDate);
-    console.log('End Date:', endDate);
   }
 }

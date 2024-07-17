@@ -1,0 +1,5 @@
+<div *ngIf="booking">
+  <h2>Paiement pour la réservation {{ booking.car.name }}</h2>
+  <div id="card-element"><!-- Stripe Card Element --></div>
+  <button (click)="completePayment()">Payer</button>
+</div>

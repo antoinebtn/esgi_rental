@@ -9,9 +9,6 @@ export default (app) => {
         return res.status(400).json({ message: 'Location parameter is required' });
       }
 
-      console.log(location);
-
-      // Trouver toutes les voitures qui correspondent à la localisation
       const cars = await Car.findAll({
         where: {
           location: location

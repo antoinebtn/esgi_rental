@@ -6,7 +6,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
-import { PaymentComponent } from './payment/payment.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },

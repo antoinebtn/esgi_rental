@@ -19,7 +19,6 @@ export class ConfirmationComponent {
   ngOnInit(): void {
     this.bookingService.getReservation().subscribe(booking => {
       this.booking = booking;
-      console.log(this.booking);
       
       if (!this.booking) {
         this.router.navigate(['/']);
