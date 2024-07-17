@@ -33,7 +33,7 @@ export default (sequelize, DataTypes) => {
     })
     
     Car.associate = models => {
-      Car.hasMany(models.Reservation, { foreignKey: 'carId', as: 'reservations' });
+      Car.hasMany(models.Booking, { foreignKey: 'carId', as: 'reservations' });
   };
   
   return Car;

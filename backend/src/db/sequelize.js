@@ -21,6 +21,9 @@ const Car = CarModel(sequelize, DataTypes)
 const Booking = BookingModel(sequelize, DataTypes)
 const User = UserModel(sequelize, DataTypes)
 
+Car.associate({ Booking });
+Booking.associate({ Car });
+
 const initDb = async () => {
     await sequelize.sync({ force: true });
   

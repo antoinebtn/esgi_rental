@@ -18,7 +18,7 @@ export class AuthService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    private getLocalStorageUser(): any {
+    public getLocalStorageUser(): any {
         if (typeof window !== 'undefined' && window.localStorage) {
             return JSON.parse(localStorage.getItem('currentUser')!);
         }

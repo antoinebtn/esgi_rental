@@ -12,6 +12,8 @@ import deleteCar from "./src/routes/deleteCar.js";
 import searchCars from './src/routes/searchCars.js'
 import authRoute from './src/routes/auth.js'
 import booking from './src/routes/booking.js'
+import createReservation from './src/routes/createReservation.js'
+import getUserReservations from './src/routes/getUserReservations.js'
 
 const app = express()
 const port = 3000
@@ -31,6 +33,8 @@ createCar(app)
 updateCar(app)
 deleteCar(app)
 booking(app)
+createReservation(app)
+getUserReservations(app)
 
 
 app.listen(port, () => {
