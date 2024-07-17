@@ -83,3 +83,31 @@ cd frontend
 npm install
 ng serve
 ```
+
+### Authentication and Authorization
+The application includes authentication and authorization features using JSON Web Tokens (JWT). Users can register, log in, and access protected routes based on their roles (e.g., admin, user).
+
+### Registration and Login
+Users can register and log in to the application. The frontend handles user input and communicates with the backend to manage authentication tokens.
+test credentials : 
+- "admin@example.com" / "password"
+- "user@example.com" / "password
+
+### Secured Routes
+Certain routes are protected and require authentication. For example, the /api/admin routes are only accessible to users with the admin role.
+
+### User Features
+Search for Cars
+Users can search for available cars based on location and date range. The search results are displayed with car details and pricing.
+
+### View Car Details
+Users can view detailed information about a specific car, including images, seat capacity, and rental price.
+
+### Book a Car
+Users can book a car for a specified date range. The booking details are saved to the database and associated with the user's account.
+
+### View Reservations
+Users can view their reservations and see details about their bookings.
+
+Contributing
+Contributions are welcome! Please create a pull request or open an issue to discuss any changes you would like to make.
